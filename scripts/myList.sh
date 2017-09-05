@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Displays the contents of the script's containing directory.
+# Gets script's containing directory.
 # taken from http://www.ostricher.com/2014/10/the-right-way-to-get-the-directory-of-a-bash-script/
-#SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 #CONTENTS=$(ls $SCRIPT_DIR)
 
@@ -17,6 +17,6 @@ echo "<!DOCTYPE html>
 		$CONTENTS
 	</p>
 	</body>
-	</html>" > temp.html
+	</html>" > $SCRIPT_DIR/../temp/temp.html
 
-xdg-open temp.html
+xdg-open $SCRIPT_DIR/../temp/temp.html
