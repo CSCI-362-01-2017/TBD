@@ -1,7 +1,7 @@
 
 class MissingSpecificationException extends Exception {
 
-    MissingSpecificationException(String s) {
-        super(s);
-    }
+	MissingSpecificationException(String s) {
+		super(s);
+	}
 }
