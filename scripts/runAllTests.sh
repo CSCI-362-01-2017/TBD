@@ -4,7 +4,7 @@ SCRIPT_DIR="$( cd "$( dirname "$0" )" &&pwd )"
 
 javac $SCRIPT_DIR/Driver.java
 
-out=$(java Driver FileName)
+out=$(java Driver $SCRIPT_DIR/../testCases/)
 
 echo "<!DOCTYPE html>
 	<html>
@@ -17,3 +17,4 @@ echo "<!DOCTYPE html>
 
 xdg-open $SCRIPT_DIR/../temp.html
 
+exit 0
