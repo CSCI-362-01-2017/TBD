@@ -2,6 +2,8 @@
 
 SCRIPT_DIR="$( cd "$( dirname "$0" )" &&pwd )"
 
+../project/./gradlew assemble
+
 javac $SCRIPT_DIR/Driver.java
 
 out=$(java Driver $SCRIPT_DIR/../testCases/)
