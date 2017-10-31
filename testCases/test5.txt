@@ -1,7 +1,7 @@
-testID-002
+testID-005
 requirement-TBD
 component-project/app/build/intermediates/classes/debug/org/glucosio/org.glucosio.android.tools.ReadingTools
 method-hourToSpinnerType
 argtypes-int
-input-5
-oracle-0
+input-15
+oracle-3
