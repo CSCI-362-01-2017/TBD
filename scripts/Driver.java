@@ -1,8 +1,14 @@
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Driver {
@@ -11,6 +17,7 @@ public class Driver {
     public static final String REQUIREMENT = "requirement";
     public static final String COMPONENT = "component";
     public static final String METHOD = "method";
+    public static final String ARG_TYPES = "argtypes";
     public static final String INPUT = "input";
     public static final String OUTPUT = "output";
     public static final String ORACLE = "oracle";
@@ -56,17 +63,38 @@ public class Driver {
                     if (input == null) {
                         throw new MissingSpecificationException("Missing inputs.");
                     }
+                    String argTypesString = findLine(ARG_TYPES, lines);
+                    String[] argTypes;
+                    if (argTypesString == null) {
+                        argTypes = new String[]{};
+                    } else {
+                        argTypes = argTypesString.split(",");
+                    }
                     String oracle = findLine(ORACLE, lines);
                     if (oracle == null) {
                         throw new MissingSpecificationException("Missing oracle.");
                     }
 
-                    System.out.println(TEST_ID + " : " + testID);
-                    System.out.println(REQUIREMENT + " : " + requirement);
-                    System.out.println(COMPONENT + " : " + component);
-                    System.out.println(METHOD + " : " + method);
-                    System.out.println(INPUT + " : " + input);
-                    System.out.println(ORACLE + " : " + oracle);
+                    try {
+                        Class<?> clazz = getClassFromFile(component);
+
+                        Constructor<?> constructor = clazz.getConstructor();
+
+                        Object object = constructor.newInstance();
+
+                        Method theMethod = clazz.getMethod(method, int.class);
+                        int output = (int) theMethod.invoke(object, Integer.parseInt(input));
+                        String passFail = (output == Integer.parseInt(oracle) ? "PASS" : "FAIL");
+
+                        System.out.println(testID + ": " + passFail + ", expected: " + oracle + ", actual: " + output + "\n");
+
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (NoSuchMethodException e) {
+                        e.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                 } catch (MissingSpecificationException e) {
                     System.out.println(e.getMessage());
@@ -98,6 +126,16 @@ public class Driver {
 
     private static String replaceIfNull(String string, String replacement) {
         return (string != null) ? string : replacement;
+    }
+
+    private static Class getClassFromFile(String classPath) throws Exception {
+        String folder = classPath.substring(0, classPath.lastIndexOf("/"));
+        String className = classPath.substring(classPath.lastIndexOf("/") + 1);
+
+        URLClassLoader loader = new URLClassLoader(new URL[] {
+                new URL("file://" + Paths.get("").toAbsolutePath().getParent().normalize().toString() + "/" + folder)
+        });
+        return loader.loadClass(className);
     }
 }
 
