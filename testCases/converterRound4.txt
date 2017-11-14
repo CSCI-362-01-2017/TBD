@@ -1,0 +1,7 @@
+converterRound4
+Tests a negative number of places to round to.
+org.glucosio.android.tools.GlucosioConverter
+public static double round(double value, int places)
+RoundDriver
+0.12345~-6
+Error: Invalid input

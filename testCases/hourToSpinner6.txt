@@ -1,0 +1,7 @@
+hourToSpinner6
+Returns spinner type 5 if the hour is after dinner.
+org.glucosio.android.tools.ReadingTools
+public int hourToSpinnerType(int hour)
+HourToSpinnerTypeDriver
+21
+5
