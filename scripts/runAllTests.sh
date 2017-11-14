@@ -11,24 +11,20 @@ do
 	else	
 		javac $SCRIPT_DIR/"${array[4]}.java"
 		java "${array[4]}"
-	fi
+	fi		
 
-	while IFS='\n' read -r line;
-	do		
-
-		echo "<!DOCTYPE html>
-			<html>
-			<body>
-			<p>
-			<br>
-				$line
-			</br>	
-			</p>
-			</body>
-			</html>" > $SCRIPT_DIR/../temp.html	
-	
-	done < $pfile
+	echo "<!DOCTYPE html>
+		<html>
+		<body>
+		<p>
+			"${array[0]}"
+		<br>	
+		</p>
+		</body>
+		</html>" > $SCRIPT_DIR/../temp.html	
 
 done
-#xdg-open $SCRIPT_DIR/../temp.html
+
+xdg-open $SCRIPT_DIR/../temp.html
+
 exit 0
