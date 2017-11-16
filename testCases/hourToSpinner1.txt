@@ -1,0 +1,7 @@
+hourToSpinner1
+Returns spinner type 0 if hour is before breakfast.
+org.glucosio.android.tools.ReadingTools
+public int hourToSpinnerType(int hour)
+HourToSpinnerTypeDriver
+5
+0

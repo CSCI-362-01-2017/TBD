@@ -1,0 +1,7 @@
+a1cToGlucose2
+Tests converting a negative value.
+org.glucosio.android.tools.GlucosioConverter
+public static double a1cToGlucose(double a1c)
+A1cToGlucoseDriver
+-1.40223
+-86.94

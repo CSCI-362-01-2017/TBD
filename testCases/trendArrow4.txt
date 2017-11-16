@@ -1,0 +1,7 @@
+trendArrow4
+Tests that if the provided data trend is below the up trend limit, but above the slightly up trend limit, a "slightly up" TrendArrow is returned.
+org.glucosio.android.tools.AlgorithmUtil
+public static TrendArrow getTrendArrow(Context context, GlucoseData data)
+GetTrendArrowDriver
+0.75
+SLIGHTLY_UP

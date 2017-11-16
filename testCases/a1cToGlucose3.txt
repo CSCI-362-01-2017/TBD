@@ -1,0 +1,7 @@
+a1cToGlucose3
+Tests converting a value in scientific notation.
+org.glucosio.android.tools.GlucosioConverter
+public static double a1cToGlucose(double a1c)
+A1cToGlucoseDriver
+3.24e-3
+-46.61
