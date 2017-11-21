@@ -1,0 +1,7 @@
+parseReading2
+Returns a Number based on a provided String and the current Locale.<br>This tests that null is returned when provided a number in an incorrect Locale's format.
+org.glucosio.android.tools.ReadingTools
+public static Number parseReading(String reading)
+ParseReadingDriver
+en~1,23
+null

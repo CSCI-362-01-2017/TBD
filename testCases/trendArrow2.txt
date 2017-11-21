@@ -1,7 +1,0 @@
-trendArrow2
-Tests that if the provided data trend is below the down trend limit, a "down" TrendArrow is returned.
-org.glucosio.android.tools.AlgorithmUtil
-public static TrendArrow getTrendArrow(Context context, GlucoseData data)
-GetTrendArrowDriver
--2
-DOWN

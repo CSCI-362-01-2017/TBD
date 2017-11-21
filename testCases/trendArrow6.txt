@@ -1,7 +1,0 @@
-trendArrow6
-Tests that if the provided data trend is not a number, an error is thrown.
-org.glucosio.android.tools.AlgorithmUtil
-public static TrendArrow getTrendArrow(Context context, GlucoseData data)
-GetTrendArrowDriver
--abc
-Error: Trend not a number

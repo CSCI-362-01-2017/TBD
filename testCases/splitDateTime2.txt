@@ -1,0 +1,7 @@
+splitDateTime2
+Returns a String representing part of a provided Date.<br>This tests that getMinute() returns an appropriate value for a valid Date.
+org.glucosio.android.tools.SplitDateTime
+public String getHour()
+SplitDateMinuteDriver
+1992-05-12 12:20~yyyy-MM-dd HH:mm
+20

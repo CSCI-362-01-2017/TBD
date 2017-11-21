@@ -6,6 +6,7 @@ TEST_DIR=$SCRIPT_DIR/../testCases	# directory containing test cases
 PROJECT_DIR=$SCRIPT_DIR/../project	# directory containing Glucosio files
 TEMP_DIR=$SCRIPT_DIR/../temp		# directory containing temporary files
 HTML_FILE=$SCRIPT_DIR/../reports/report.html	# HTML file to be displayed as report
+CLASSPATH=.:$PROJECT_DIR/app/build/intermediates/classes/debug
 
 addToHTML() {	# Function for adding a series of lines to the HTML file
 	echo "<p>" >> $HTML_FILE
@@ -21,13 +22,15 @@ addToHTML() {	# Function for adding a series of lines to the HTML file
 # Build project files
 (cd $PROJECT_DIR; ./gradlew assemble)
 
-# Delete temp.html, if it exists
-rm -f $HTML_FILE
+# Compile drivers
+(cd $DRIVER_DIR; find -name "*.java" > sources.txt)
+(cd $DRIVER_DIR; javac @sources.txt -cp $CLASSPATH -d $TEMP_DIR)
+rm -rf $DRIVER_DIR/sources.txt
 
 # Begin HTML file
 echo "<!DOCTYPE html>			
 	<html>
-	<body>" >> $HTML_FILE
+	<body>" > $HTML_FILE
 
 i=$((1))
 
@@ -74,13 +77,12 @@ do
 		if [ -z "$DRIVER" ]	# empty driver line
 		then
 			echo "$TEST_ID is missing a driver specification!"
-			details=("<u>$TEST_ID</u>: <font color=blue>N/A</font>, no driver to run" "$REQUIREMENT" "<b>Component</b>: $COMPONENT" "<b>Method</b>: $METHOD")
+			details=("$i. <u>$TEST_ID</u>: <font color=blue>N/A</font>, no driver to run" "$REQUIREMENT" "<b>Component</b>: $COMPONENT" "<b>Method</b>: $METHOD")
 			addToHTML "${details[@]}"
 
 		else
-			# Compile and run driver; collect output
-			(cd $DRIVER_DIR; javac "$DRIVER.java" -cp .:$PROJECT_DIR/app/build/intermediates/classes/debug -d $TEMP_DIR)
-			OUTPUT=$(cd $TEMP_DIR; java -cp .:$PROJECT_DIR/app/build/intermediates/classes/debug $DRIVER "$INPUT")
+			# Run driver; collect output
+			OUTPUT=$(cd $TEMP_DIR; java -cp $CLASSPATH $DRIVER "$INPUT")
 
 			if [ "$OUTPUT" = "$ORACLE" ]
 			then
@@ -94,13 +96,13 @@ do
 				addToHTML "${details[@]}"
 
 			fi
-
-			# Clear TEMP_DIR
-			#rm -rf $TEMP_DIR/*
 		fi
 	fi
 	i=$((i + 1))
 done
+
+# Clear temporary files
+rm -rf $TEMP_DIR/*
 
 # Finish out HTML file
 echo "</body>

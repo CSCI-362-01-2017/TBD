@@ -1,0 +1,7 @@
+splitDateTime6
+Returns a String representing part of a provided Date.<br>This tests that an error occurs when an invalid date String is provided.
+org.glucosio.android.tools.SplitDateTime
+public String getDay()
+SplitDateDayDriver
+1992-05-1a 12:20~yyyy-MM-dd HH:mm
+Error

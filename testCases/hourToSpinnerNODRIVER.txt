@@ -1,7 +1,0 @@
-hourToSpinner7
-Returns spinner type 8 if the hour is night time or invalid (hour > 23 || hour < 4)
-org.glucosio.android.tools.ReadingTools
-public int hourToSpinnerType(int hour)
-
-30
-8
