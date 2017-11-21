@@ -2,32 +2,32 @@
 	<html>
 	<body>
 <p>
-1. <u>a1cToGlucose1</u>: <font color=green>PASS</font><br>
+1. <u>a1cToGlucose1</u>: <font color=red>FAIL</font><br>
 Tests converting a positive value.<br>
 <b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
 <b>Method</b>: public static double a1cToGlucose(double a1c)<br>
-<b>Expected</b>: -43.16, <b>Actual</b>: -43.16<br>
+<b>Expected</b>: -43.16, <b>Actual</b>: -43.157<br>
 <br>
 <p>
-2. <u>a1cToGlucose2</u>: <font color=green>PASS</font><br>
+2. <u>a1cToGlucose2</u>: <font color=red>FAIL</font><br>
 Tests converting a negative value.<br>
 <b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
 <b>Method</b>: public static double a1cToGlucose(double a1c)<br>
-<b>Expected</b>: -86.94, <b>Actual</b>: -86.94<br>
+<b>Expected</b>: -86.94, <b>Actual</b>: -86.945<br>
 <br>
 <p>
-3. <u>a1cToGlucose3</u>: <font color=green>PASS</font><br>
+3. <u>a1cToGlucose3</u>: <font color=red>FAIL</font><br>
 Tests converting a value in scientific notation.<br>
 <b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
 <b>Method</b>: public static double a1cToGlucose(double a1c)<br>
-<b>Expected</b>: -46.61, <b>Actual</b>: -46.61<br>
+<b>Expected</b>: -46.61, <b>Actual</b>: -46.608<br>
 <br>
 <p>
-4. <u>converterRound1</u>: <font color=green>PASS</font><br>
+4. <u>converterRound1</u>: <font color=red>FAIL</font><br>
 Tests a valid value to round.<br>
 <b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
 <b>Method</b>: public static double round(double value, int places)<br>
-<b>Expected</b>: 0.12346, <b>Actual</b>: 0.12346<br>
+<b>Expected</b>: 0.12346, <b>Actual</b>: 0.12345<br>
 <br>
 <p>
 5. <u>converterRound2</u>: <font color=green>PASS</font><br>
@@ -51,11 +51,11 @@ Tests a negative number of places to round to.<br>
 <b>Expected</b>: Error: Invalid input, <b>Actual</b>: Error: Invalid input<br>
 <br>
 <p>
-8. <u>hourToSpinner1</u>: <font color=green>PASS</font><br>
+8. <u>hourToSpinner1</u>: <font color=red>FAIL</font><br>
 Returns spinner type 0 if hour is before breakfast.<br>
 <b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
 <b>Method</b>: public int hourToSpinnerType(int hour)<br>
-<b>Expected</b>: 0, <b>Actual</b>: 0<br>
+<b>Expected</b>: 0, <b>Actual</b>: 1<br>
 <br>
 <p>
 9. <u>hourToSpinner2</u>: <font color=green>PASS</font><br>
@@ -156,11 +156,11 @@ Returns a String representing part of a provided Date.<br>This tests that getYea
 <b>Expected</b>: 1992, <b>Actual</b>: 1992<br>
 <br>
 <p>
-23. <u>splitDateTime4</u>: <font color=green>PASS</font><br>
+23. <u>splitDateTime4</u>: <font color=red>FAIL</font><br>
 Returns a String representing part of a provided Date.<br>This tests that getMonth() returns an appropriate value for a valid Date.<br>
 <b>Component</b>: org.glucosio.android.tools.SplitDateTime<br>
 <b>Method</b>: public String getMonth()<br>
-<b>Expected</b>: 05, <b>Actual</b>: 05<br>
+<b>Expected</b>: 05, <b>Actual</b>: 20<br>
 <br>
 <p>
 24. <u>splitDateTime5</u>: <font color=green>PASS</font><br>

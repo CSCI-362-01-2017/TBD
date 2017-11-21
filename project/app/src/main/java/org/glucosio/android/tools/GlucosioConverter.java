@@ -30,7 +30,7 @@ public final class GlucosioConverter {
         if (places < 0) throw new IllegalArgumentException();
 
         BigDecimal bd = new BigDecimal(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        bd = bd.setScale(places, RoundingMode.FLOOR);
         return bd.doubleValue();
     }
 
@@ -50,7 +50,7 @@ public final class GlucosioConverter {
 
     public static double a1cToGlucose(double a1c) {
         // Average glucose = (A1C * 28.7) -46.7
-        return round((a1c * 28.7) - 46.7, 2);
+        return round((a1c * 28.7) - 46.7, 3);
     }
 
     public static int kgToLb(int kg) {
