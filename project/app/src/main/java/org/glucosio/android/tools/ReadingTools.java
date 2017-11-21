@@ -42,7 +42,7 @@ public class ReadingTools {
             return 3; // after lunch
         } else if (hour > 11) {
             return 2; // before lunch
-        } else if (hour > 7) {
+        } else if (hour >= 7) {
             return 1; //after breakfast
         } else if (hour > 4) {
             return 0; // before breakfast

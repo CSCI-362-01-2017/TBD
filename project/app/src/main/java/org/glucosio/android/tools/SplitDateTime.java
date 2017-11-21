@@ -50,7 +50,7 @@ public class SplitDateTime {
     }
 
     public String getMonth() {
-        DateFormat finalFormat = new SimpleDateFormat("MM");
+        DateFormat finalFormat = new SimpleDateFormat("mm");
         return finalFormat.format(origDateTime);
     }
 
