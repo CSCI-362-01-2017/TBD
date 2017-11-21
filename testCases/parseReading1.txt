@@ -1,0 +1,7 @@
+parseReading1
+Returns a Number based on a provided String and the current Locale.<br>This tests that a number with a period is returned when provided a number with a comma and a French Locale.
+org.glucosio.android.tools.ReadingTools
+public static Number parseReading(String reading)
+ParseReadingDriver
+fr~1,35
+1.35

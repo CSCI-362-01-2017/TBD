@@ -1,7 +1,0 @@
-trendArrow5
-Tests that if the provided data trend is equal to the TREND_SLIGHT_UP_DOWN_LIMIT, a "flat" arrow is returned.
-org.glucosio.android.tools.AlgorithmUtil
-public static TrendArrow getTrendArrow(Context context, GlucoseData data)
-GetTrendArrowDriver
-0.5
-FLAT
