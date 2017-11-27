@@ -9,14 +9,14 @@ HTML_FILE=$SCRIPT_DIR/../reports/report.html	# HTML file to be displayed as repo
 CLASSPATH=.:$PROJECT_DIR/app/build/intermediates/classes/debug
 
 addToHTML() {	# Function for adding a series of lines to the HTML file
-	echo "<p>" >> $HTML_FILE
+	echo "<tr>" >> $HTML_FILE
 
 	for arg in "$@"
 	do
-		echo "$arg<br>" >> $HTML_FILE
+		echo "<th>$arg</th>" >> $HTML_FILE
 	done
 
-	echo "<br>" >> $HTML_FILE
+	echo "</tr>" >> $HTML_FILE
 }
 
 # Build project files
@@ -28,9 +28,21 @@ addToHTML() {	# Function for adding a series of lines to the HTML file
 rm -rf $DRIVER_DIR/sources.txt
 
 # Begin HTML file
-echo "<!DOCTYPE html>			
+echo '<!DOCTYPE html>			
 	<html>
-	<body>" > $HTML_FILE
+	<body>
+
+	<table style="width:100%" border="1px solid black">
+		<tr>
+			<th><u>#</u></th>
+			<th><u>TestID</u></th>
+			<th><u>Requirement</u></th>
+			<th><u>Pass/Fail</u></th>
+			<th><u>Component Tested</u></th>
+			<th><u>Method Tested</u></th>
+			<th><u>Expected Output</u></th>
+			<th><u>Actual Output</u></th>
+		</tr>' > $HTML_FILE
 
 i=$((1))
 
@@ -77,7 +89,7 @@ do
 		if [ -z "$DRIVER" ]	# empty driver line
 		then
 			echo "$TEST_ID is missing a driver specification!"
-			details=("$i. <u>$TEST_ID</u>: <font color=blue>N/A</font>, no driver to run" "$REQUIREMENT" "<b>Component</b>: $COMPONENT" "<b>Method</b>: $METHOD")
+			details=("$i." "$TEST_ID" "<font color=blue>N/A</font>" "$REQUIREMENT" "$COMPONENT" "$METHOD")
 			addToHTML "${details[@]}"
 
 		else
@@ -87,12 +99,12 @@ do
 			if [ "$OUTPUT" = "$ORACLE" ]
 			then
 				# test passed
-				details=("$i. <u>$TEST_ID</u>: <font color=green>PASS</font>" "$REQUIREMENT" "<b>Component</b>: $COMPONENT" "<b>Method</b>: $METHOD" "<b>Expected</b>: $ORACLE, <b>Actual</b>: $OUTPUT")
+				details=("$i." "$TEST_ID" "<font color=green>PASS</font>" "$REQUIREMENT" "$COMPONENT" "$METHOD" "$ORACLE" "$OUTPUT")
 				addToHTML "${details[@]}"
 
 			else
 				# test failed
-				details=("$i. <u>$TEST_ID</u>: <font color=red>FAIL</font>" "$REQUIREMENT" "<b>Component</b>: $COMPONENT" "<b>Method</b>: $METHOD" "<b>Expected</b>: $ORACLE, <b>Actual</b>: $OUTPUT")
+				details=("$i." "$TEST_ID" "<font color=red>FAIL</font>" "$REQUIREMENT" "$COMPONENT" "$METHOD" "$ORACLE" "$OUTPUT")
 				addToHTML "${details[@]}"
 
 			fi
@@ -105,7 +117,8 @@ done
 rm -rf $TEMP_DIR/*
 
 # Finish out HTML file
-echo "</body>
+echo "</table>
+      </body>
       </html>" >> $HTML_FILE
 
 xdg-open $HTML_FILE
