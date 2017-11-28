@@ -1,5 +1,5 @@
 hourToSpinner6
-Returns spinner type 5 if the hour is after dinner.
+This method returns an int value to determine the correct spinner by hour of the day. Returns spinner type 5 if the hour is after dinner.
 org.glucosio.android.tools.ReadingTools
 public int hourToSpinnerType(int hour)
 HourToSpinnerTypeDriver

@@ -5,6 +5,13 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * Driver which tests the getMinute method of org.glucosio.android.tools.SplitDateTime.
+ *
+ * Valid input should be a single String composed of a String representing the Date,
+ * and a String representing the DateFormat, separated by a '~'. For example,
+ * "01-12-1984 02:30~mm-dd-yyyy HH:MM"
+ */
 public class SplitDateMinuteDriver {
 
     public static void main(String[] args) {
@@ -15,10 +22,15 @@ public class SplitDateMinuteDriver {
         DateFormat format = new SimpleDateFormat(formatString);
 
         try {
+
             SplitDateTime dateTime = new SplitDateTime(format.parse(dateString), format);
             System.out.println(dateTime.getMinute());
+
         } catch (ParseException e) {
+
+            // Input could not be parsed into a Date
             System.out.println("Error");
+
         }
     }
 
