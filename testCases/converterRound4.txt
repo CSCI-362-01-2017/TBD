@@ -1,5 +1,5 @@
 converterRound4
-Tests a negative number of places to round to.
+A custom rounding method used within GlucosioConverter. Tests a negative number of places to round to.
 org.glucosio.android.tools.GlucosioConverter
 public static double round(double value, int places)
 RoundDriver

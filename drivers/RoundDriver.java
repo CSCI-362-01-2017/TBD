@@ -1,6 +1,13 @@
 
 import org.glucosio.android.tools.GlucosioConverter;
 
+/**
+ * Driver which tests the round method of org.glucosio.android.tools.GlucosioConverter.
+ *
+ * Valid input should be a single String composed of a String representing a Double to
+ * be rounded, and a String representing an Integer number of places to round to,
+ * separated by a '~'. For example, "-1.2345~2"
+ */
 public class RoundDriver {
 
     public static void main(String[] args) {

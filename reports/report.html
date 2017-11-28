@@ -1,180 +1,268 @@
 <!DOCTYPE html>			
 	<html>
 	<body>
-<p>
-1. <u>a1cToGlucose1</u>: <font color=green>PASS</font><br>
-Tests converting a positive value.<br>
-<b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
-<b>Method</b>: public static double a1cToGlucose(double a1c)<br>
-<b>Expected</b>: -43.16, <b>Actual</b>: -43.16<br>
-<br>
-<p>
-2. <u>a1cToGlucose2</u>: <font color=green>PASS</font><br>
-Tests converting a negative value.<br>
-<b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
-<b>Method</b>: public static double a1cToGlucose(double a1c)<br>
-<b>Expected</b>: -86.94, <b>Actual</b>: -86.94<br>
-<br>
-<p>
-3. <u>a1cToGlucose3</u>: <font color=green>PASS</font><br>
-Tests converting a value in scientific notation.<br>
-<b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
-<b>Method</b>: public static double a1cToGlucose(double a1c)<br>
-<b>Expected</b>: -46.61, <b>Actual</b>: -46.61<br>
-<br>
-<p>
-4. <u>converterRound1</u>: <font color=green>PASS</font><br>
-Tests a valid value to round.<br>
-<b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
-<b>Method</b>: public static double round(double value, int places)<br>
-<b>Expected</b>: 0.12346, <b>Actual</b>: 0.12346<br>
-<br>
-<p>
-5. <u>converterRound2</u>: <font color=green>PASS</font><br>
-Tests an invalid number to round.<br>
-<b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
-<b>Method</b>: public static double round(double value, int places)<br>
-<b>Expected</b>: Error: Invalid input, <b>Actual</b>: Error: Invalid input<br>
-<br>
-<p>
-6. <u>converterRound3</u>: <font color=green>PASS</font><br>
-Tests an invalid number of places to round to.<br>
-<b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
-<b>Method</b>: public static double round(double value, int places)<br>
-<b>Expected</b>: Error: Invalid input, <b>Actual</b>: Error: Invalid input<br>
-<br>
-<p>
-7. <u>converterRound4</u>: <font color=green>PASS</font><br>
-Tests a negative number of places to round to.<br>
-<b>Component</b>: org.glucosio.android.tools.GlucosioConverter<br>
-<b>Method</b>: public static double round(double value, int places)<br>
-<b>Expected</b>: Error: Invalid input, <b>Actual</b>: Error: Invalid input<br>
-<br>
-<p>
-8. <u>hourToSpinner1</u>: <font color=green>PASS</font><br>
-Returns spinner type 0 if hour is before breakfast.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public int hourToSpinnerType(int hour)<br>
-<b>Expected</b>: 0, <b>Actual</b>: 0<br>
-<br>
-<p>
-9. <u>hourToSpinner2</u>: <font color=green>PASS</font><br>
-Returns spinner type 1 if the hour is after breakfast.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public int hourToSpinnerType(int hour)<br>
-<b>Expected</b>: 1, <b>Actual</b>: 1<br>
-<br>
-<p>
-10. <u>hourToSpinner3</u>: <font color=green>PASS</font><br>
-Returns spinner type 2 if the hour is before lunch.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public int hourToSpinnerType(int hour)<br>
-<b>Expected</b>: 2, <b>Actual</b>: 2<br>
-<br>
-<p>
-11. <u>hourToSpinner4</u>: <font color=green>PASS</font><br>
-Returns spinner type 3 if the hour is after lunch.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public int hourToSpinnerType(int hour)<br>
-<b>Expected</b>: 3, <b>Actual</b>: 3<br>
-<br>
-<p>
-12. <u>hourToSpinner5</u>: <font color=green>PASS</font><br>
-Returns spinner type 4 if the hour is before dinner.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public int hourToSpinnerType(int hour)<br>
-<b>Expected</b>: 4, <b>Actual</b>: 4<br>
-<br>
-<p>
-13. <u>hourToSpinner6</u>: <font color=green>PASS</font><br>
-Returns spinner type 5 if the hour is after dinner.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public int hourToSpinnerType(int hour)<br>
-<b>Expected</b>: 5, <b>Actual</b>: 5<br>
-<br>
-<p>
-14. <u>hourToSpinner7</u>: <font color=green>PASS</font><br>
-Returns spinner type 8 if the hour is night time or invalid.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public int hourToSpinnerType(int hour)<br>
-<b>Expected</b>: 8, <b>Actual</b>: 8<br>
-<br>
-<p>
-15. <u>parseReading1</u>: <font color=green>PASS</font><br>
-Returns a Number based on a provided String and the current Locale.<br>This tests that a number with a period is returned when provided a number with a comma and a French Locale.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public static Number parseReading(String reading)<br>
-<b>Expected</b>: 1.35, <b>Actual</b>: 1.35<br>
-<br>
-<p>
-16. <u>parseReading2</u>: <font color=red>FAIL</font><br>
-Returns a Number based on a provided String and the current Locale.<br>This tests that null is returned when provided a number in an incorrect Locale's format.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public static Number parseReading(String reading)<br>
-<b>Expected</b>: null, <b>Actual</b>: 123.0<br>
-<br>
-<p>
-17. <u>parseReading3</u>: <font color=green>PASS</font><br>
-Returns a Number based on a provided String and the current Locale.<br>This tests that a period returned when provided a whole number.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public static Number parseReading(String reading)<br>
-<b>Expected</b>: 1.0, <b>Actual</b>: 1.0<br>
-<br>
-<p>
-18. <u>parseReading4</u>: <font color=green>PASS</font><br>
-Returns a Number based on a provided String and the current Locale.<br>This tests that null is returned when provided an empty String.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public static Number parseReading(String reading)<br>
-<b>Expected</b>: null, <b>Actual</b>: null<br>
-<br>
-<p>
-19. <u>parseReading5</u>: <font color=red>FAIL</font><br>
-Returns a Number based on a provided String and the current Locale.<br>This tests that null is returned when provided an invalid number.<br>
-<b>Component</b>: org.glucosio.android.tools.ReadingTools<br>
-<b>Method</b>: public static Number parseReading(String reading)<br>
-<b>Expected</b>: null, <b>Actual</b>: 1.0<br>
-<br>
-<p>
-20. <u>splitDateTime1</u>: <font color=green>PASS</font><br>
-Returns a String representing part of a provided Date.<br>This tests that getHour() returns an appropriate value for a valid Date.<br>
-<b>Component</b>: org.glucosio.android.tools.SplitDateTime<br>
-<b>Method</b>: public String getHour()<br>
-<b>Expected</b>: 12, <b>Actual</b>: 12<br>
-<br>
-<p>
-21. <u>splitDateTime2</u>: <font color=green>PASS</font><br>
-Returns a String representing part of a provided Date.<br>This tests that getMinute() returns an appropriate value for a valid Date.<br>
-<b>Component</b>: org.glucosio.android.tools.SplitDateTime<br>
-<b>Method</b>: public String getHour()<br>
-<b>Expected</b>: 20, <b>Actual</b>: 20<br>
-<br>
-<p>
-22. <u>splitDateTime3</u>: <font color=green>PASS</font><br>
-Returns a String representing part of a provided Date.<br>This tests that getYear() returns an appropriate value for a valid Date.<br>
-<b>Component</b>: org.glucosio.android.tools.SplitDateTime<br>
-<b>Method</b>: public String getYear()<br>
-<b>Expected</b>: 1992, <b>Actual</b>: 1992<br>
-<br>
-<p>
-23. <u>splitDateTime4</u>: <font color=green>PASS</font><br>
-Returns a String representing part of a provided Date.<br>This tests that getMonth() returns an appropriate value for a valid Date.<br>
-<b>Component</b>: org.glucosio.android.tools.SplitDateTime<br>
-<b>Method</b>: public String getMonth()<br>
-<b>Expected</b>: 05, <b>Actual</b>: 05<br>
-<br>
-<p>
-24. <u>splitDateTime5</u>: <font color=green>PASS</font><br>
-Returns a String representing part of a provided Date.<br>This tests that getDay() returns an appropriate value for a valid Date.<br>
-<b>Component</b>: org.glucosio.android.tools.SplitDateTime<br>
-<b>Method</b>: public String getDay()<br>
-<b>Expected</b>: 12, <b>Actual</b>: 12<br>
-<br>
-<p>
-25. <u>splitDateTime6</u>: <font color=green>PASS</font><br>
-Returns a String representing part of a provided Date.<br>This tests that an error occurs when an invalid date String is provided.<br>
-<b>Component</b>: org.glucosio.android.tools.SplitDateTime<br>
-<b>Method</b>: public String getDay()<br>
-<b>Expected</b>: Error, <b>Actual</b>: Error<br>
-<br>
-</body>
+
+	<table style="width:100%" border="1px solid black">
+		<tr>
+			<th><u>#</u></th>
+			<th><u>TestID</u></th>
+			<th><u>Requirement</u></th>
+			<th><u>Pass/Fail</u></th>
+			<th><u>Component Tested</u></th>
+			<th><u>Method Tested</u></th>
+			<th><u>Expected Output</u></th>
+			<th><u>Actual Output</u></th>
+		</tr>
+<tr>
+<th>1.</th>
+<th>a1cToGlucose1</th>
+<th><font color=green>PASS</font></th>
+<th>Tests converting a positive value.</th>
+<th>org.glucosio.android.tools.GlucosioConverter</th>
+<th>public static double a1cToGlucose(double a1c)</th>
+<th>-43.16</th>
+<th>-43.16</th>
+</tr>
+<tr>
+<th>2.</th>
+<th>a1cToGlucose2</th>
+<th><font color=green>PASS</font></th>
+<th>Tests converting a negative value.</th>
+<th>org.glucosio.android.tools.GlucosioConverter</th>
+<th>public static double a1cToGlucose(double a1c)</th>
+<th>-86.94</th>
+<th>-86.94</th>
+</tr>
+<tr>
+<th>3.</th>
+<th>a1cToGlucose3</th>
+<th><font color=green>PASS</font></th>
+<th>Tests converting a value in scientific notation.</th>
+<th>org.glucosio.android.tools.GlucosioConverter</th>
+<th>public static double a1cToGlucose(double a1c)</th>
+<th>-46.61</th>
+<th>-46.61</th>
+</tr>
+<tr>
+<th>4.</th>
+<th>converterRound1</th>
+<th><font color=green>PASS</font></th>
+<th>Tests a valid value to round.</th>
+<th>org.glucosio.android.tools.GlucosioConverter</th>
+<th>public static double round(double value, int places)</th>
+<th>0.12346</th>
+<th>0.12346</th>
+</tr>
+<tr>
+<th>5.</th>
+<th>converterRound2</th>
+<th><font color=green>PASS</font></th>
+<th>Tests an invalid number to round.</th>
+<th>org.glucosio.android.tools.GlucosioConverter</th>
+<th>public static double round(double value, int places)</th>
+<th>Error: Invalid input</th>
+<th>Error: Invalid input</th>
+</tr>
+<tr>
+<th>6.</th>
+<th>converterRound3</th>
+<th><font color=green>PASS</font></th>
+<th>Tests an invalid number of places to round to.</th>
+<th>org.glucosio.android.tools.GlucosioConverter</th>
+<th>public static double round(double value, int places)</th>
+<th>Error: Invalid input</th>
+<th>Error: Invalid input</th>
+</tr>
+<tr>
+<th>7.</th>
+<th>converterRound4</th>
+<th><font color=green>PASS</font></th>
+<th>Tests a negative number of places to round to.</th>
+<th>org.glucosio.android.tools.GlucosioConverter</th>
+<th>public static double round(double value, int places)</th>
+<th>Error: Invalid input</th>
+<th>Error: Invalid input</th>
+</tr>
+<tr>
+<th>8.</th>
+<th>hourToSpinner1</th>
+<th><font color=green>PASS</font></th>
+<th>Returns spinner type 0 if hour is before breakfast.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public int hourToSpinnerType(int hour)</th>
+<th>0</th>
+<th>0</th>
+</tr>
+<tr>
+<th>9.</th>
+<th>hourToSpinner2</th>
+<th><font color=green>PASS</font></th>
+<th>Returns spinner type 1 if the hour is after breakfast.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public int hourToSpinnerType(int hour)</th>
+<th>1</th>
+<th>1</th>
+</tr>
+<tr>
+<th>10.</th>
+<th>hourToSpinner3</th>
+<th><font color=green>PASS</font></th>
+<th>Returns spinner type 2 if the hour is before lunch.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public int hourToSpinnerType(int hour)</th>
+<th>2</th>
+<th>2</th>
+</tr>
+<tr>
+<th>11.</th>
+<th>hourToSpinner4</th>
+<th><font color=green>PASS</font></th>
+<th>Returns spinner type 3 if the hour is after lunch.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public int hourToSpinnerType(int hour)</th>
+<th>3</th>
+<th>3</th>
+</tr>
+<tr>
+<th>12.</th>
+<th>hourToSpinner5</th>
+<th><font color=green>PASS</font></th>
+<th>Returns spinner type 4 if the hour is before dinner.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public int hourToSpinnerType(int hour)</th>
+<th>4</th>
+<th>4</th>
+</tr>
+<tr>
+<th>13.</th>
+<th>hourToSpinner6</th>
+<th><font color=green>PASS</font></th>
+<th>Returns spinner type 5 if the hour is after dinner.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public int hourToSpinnerType(int hour)</th>
+<th>5</th>
+<th>5</th>
+</tr>
+<tr>
+<th>14.</th>
+<th>hourToSpinner7</th>
+<th><font color=green>PASS</font></th>
+<th>Returns spinner type 8 if the hour is night time or invalid.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public int hourToSpinnerType(int hour)</th>
+<th>8</th>
+<th>8</th>
+</tr>
+<tr>
+<th>15.</th>
+<th>parseReading1</th>
+<th><font color=green>PASS</font></th>
+<th>Returns a Number based on a provided String and the current Locale.<br>This tests that a number with a period is returned when provided a number with a comma and a French Locale.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public static Number parseReading(String reading)</th>
+<th>1.35</th>
+<th>1.35</th>
+</tr>
+<tr>
+<th>16.</th>
+<th>parseReading2</th>
+<th><font color=red>FAIL</font></th>
+<th>Returns a Number based on a provided String and the current Locale.<br>This tests that null is returned when provided a number in an incorrect Locale's format.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public static Number parseReading(String reading)</th>
+<th>null</th>
+<th>123.0</th>
+</tr>
+<tr>
+<th>17.</th>
+<th>parseReading3</th>
+<th><font color=green>PASS</font></th>
+<th>Returns a Number based on a provided String and the current Locale.<br>This tests that a period returned when provided a whole number.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public static Number parseReading(String reading)</th>
+<th>1.0</th>
+<th>1.0</th>
+</tr>
+<tr>
+<th>18.</th>
+<th>parseReading4</th>
+<th><font color=green>PASS</font></th>
+<th>Returns a Number based on a provided String and the current Locale.<br>This tests that null is returned when provided an empty String.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public static Number parseReading(String reading)</th>
+<th>null</th>
+<th>null</th>
+</tr>
+<tr>
+<th>19.</th>
+<th>parseReading5</th>
+<th><font color=red>FAIL</font></th>
+<th>Returns a Number based on a provided String and the current Locale.<br>This tests that null is returned when provided an invalid number.</th>
+<th>org.glucosio.android.tools.ReadingTools</th>
+<th>public static Number parseReading(String reading)</th>
+<th>null</th>
+<th>1.0</th>
+</tr>
+<tr>
+<th>20.</th>
+<th>splitDateTime1</th>
+<th><font color=green>PASS</font></th>
+<th>Returns a String representing part of a provided Date.<br>This tests that getHour() returns an appropriate value for a valid Date.</th>
+<th>org.glucosio.android.tools.SplitDateTime</th>
+<th>public String getHour()</th>
+<th>12</th>
+<th>12</th>
+</tr>
+<tr>
+<th>21.</th>
+<th>splitDateTime2</th>
+<th><font color=green>PASS</font></th>
+<th>Returns a String representing part of a provided Date.<br>This tests that getMinute() returns an appropriate value for a valid Date.</th>
+<th>org.glucosio.android.tools.SplitDateTime</th>
+<th>public String getHour()</th>
+<th>20</th>
+<th>20</th>
+</tr>
+<tr>
+<th>22.</th>
+<th>splitDateTime3</th>
+<th><font color=green>PASS</font></th>
+<th>Returns a String representing part of a provided Date.<br>This tests that getYear() returns an appropriate value for a valid Date.</th>
+<th>org.glucosio.android.tools.SplitDateTime</th>
+<th>public String getYear()</th>
+<th>1992</th>
+<th>1992</th>
+</tr>
+<tr>
+<th>23.</th>
+<th>splitDateTime4</th>
+<th><font color=green>PASS</font></th>
+<th>Returns a String representing part of a provided Date.<br>This tests that getMonth() returns an appropriate value for a valid Date.</th>
+<th>org.glucosio.android.tools.SplitDateTime</th>
+<th>public String getMonth()</th>
+<th>05</th>
+<th>05</th>
+</tr>
+<tr>
+<th>24.</th>
+<th>splitDateTime5</th>
+<th><font color=green>PASS</font></th>
+<th>Returns a String representing part of a provided Date.<br>This tests that getDay() returns an appropriate value for a valid Date.</th>
+<th>org.glucosio.android.tools.SplitDateTime</th>
+<th>public String getDay()</th>
+<th>12</th>
+<th>12</th>
+</tr>
+<tr>
+<th>25.</th>
+<th>splitDateTime6</th>
+<th><font color=green>PASS</font></th>
+<th>Returns a String representing part of a provided Date.<br>This tests that an error occurs when an invalid date String is provided.</th>
+<th>org.glucosio.android.tools.SplitDateTime</th>
+<th>public String getDay()</th>
+<th>Error</th>
+<th>Error</th>
+</tr>
+</table>
+      </body>
       </html>

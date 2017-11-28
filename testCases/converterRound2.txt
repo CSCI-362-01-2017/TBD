@@ -1,5 +1,5 @@
 converterRound2
-Tests an invalid number to round.
+A custom rounding method used within GlucosioConverter. Tests an invalid number to round.
 org.glucosio.android.tools.GlucosioConverter
 public static double round(double value, int places)
 RoundDriver
