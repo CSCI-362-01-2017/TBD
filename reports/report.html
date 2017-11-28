@@ -6,8 +6,8 @@
 		<tr>
 			<th><u>#</u></th>
 			<th><u>TestID</u></th>
-			<th><u>Requirement</u></th>
 			<th><u>Pass/Fail</u></th>
+			<th><u>Requirement</u></th>
 			<th><u>Component Tested</u></th>
 			<th><u>Method Tested</u></th>
 			<th><u>Expected Output</u></th>
@@ -17,7 +17,7 @@
 <th>1.</th>
 <th>a1cToGlucose1</th>
 <th><font color=green>PASS</font></th>
-<th>Tests converting a positive value.</th>
+<th>This method converts an A1C value to a Glucose value. Tests converting a positive value.</th>
 <th>org.glucosio.android.tools.GlucosioConverter</th>
 <th>public static double a1cToGlucose(double a1c)</th>
 <th>-43.16</th>
@@ -27,7 +27,7 @@
 <th>2.</th>
 <th>a1cToGlucose2</th>
 <th><font color=green>PASS</font></th>
-<th>Tests converting a negative value.</th>
+<th>This method converts an A1C value to a Glucose value. Tests converting a negative value.</th>
 <th>org.glucosio.android.tools.GlucosioConverter</th>
 <th>public static double a1cToGlucose(double a1c)</th>
 <th>-86.94</th>
@@ -37,7 +37,7 @@
 <th>3.</th>
 <th>a1cToGlucose3</th>
 <th><font color=green>PASS</font></th>
-<th>Tests converting a value in scientific notation.</th>
+<th>This method converts an A1C value to a Glucose value. Tests converting a value in scientific notation.</th>
 <th>org.glucosio.android.tools.GlucosioConverter</th>
 <th>public static double a1cToGlucose(double a1c)</th>
 <th>-46.61</th>
@@ -47,7 +47,7 @@
 <th>4.</th>
 <th>converterRound1</th>
 <th><font color=green>PASS</font></th>
-<th>Tests a valid value to round.</th>
+<th>A custom rounding method used within GlucosioConverter. Tests a valid value to round.</th>
 <th>org.glucosio.android.tools.GlucosioConverter</th>
 <th>public static double round(double value, int places)</th>
 <th>0.12346</th>
@@ -57,7 +57,7 @@
 <th>5.</th>
 <th>converterRound2</th>
 <th><font color=green>PASS</font></th>
-<th>Tests an invalid number to round.</th>
+<th>A custom rounding method used within GlucosioConverter. Tests an invalid number to round.</th>
 <th>org.glucosio.android.tools.GlucosioConverter</th>
 <th>public static double round(double value, int places)</th>
 <th>Error: Invalid input</th>
@@ -67,7 +67,7 @@
 <th>6.</th>
 <th>converterRound3</th>
 <th><font color=green>PASS</font></th>
-<th>Tests an invalid number of places to round to.</th>
+<th>A custom rounding method used within GlucosioConverter. Tests an invalid number of places to round to.</th>
 <th>org.glucosio.android.tools.GlucosioConverter</th>
 <th>public static double round(double value, int places)</th>
 <th>Error: Invalid input</th>
@@ -77,7 +77,7 @@
 <th>7.</th>
 <th>converterRound4</th>
 <th><font color=green>PASS</font></th>
-<th>Tests a negative number of places to round to.</th>
+<th>A custom rounding method used within GlucosioConverter. Tests a negative number of places to round to.</th>
 <th>org.glucosio.android.tools.GlucosioConverter</th>
 <th>public static double round(double value, int places)</th>
 <th>Error: Invalid input</th>
@@ -87,7 +87,7 @@
 <th>8.</th>
 <th>hourToSpinner1</th>
 <th><font color=green>PASS</font></th>
-<th>Returns spinner type 0 if hour is before breakfast.</th>
+<th>This method returns an int value to determine the correct spinner by hour of the day. Returns spinner type 0 if hour is before breakfast.</th>
 <th>org.glucosio.android.tools.ReadingTools</th>
 <th>public int hourToSpinnerType(int hour)</th>
 <th>0</th>
@@ -97,7 +97,7 @@
 <th>9.</th>
 <th>hourToSpinner2</th>
 <th><font color=green>PASS</font></th>
-<th>Returns spinner type 1 if the hour is after breakfast.</th>
+<th>This method returns an int value to determine the correct spinner by hour of the day. Returns spinner type 1 if the hour is after breakfast.</th>
 <th>org.glucosio.android.tools.ReadingTools</th>
 <th>public int hourToSpinnerType(int hour)</th>
 <th>1</th>
@@ -107,7 +107,7 @@
 <th>10.</th>
 <th>hourToSpinner3</th>
 <th><font color=green>PASS</font></th>
-<th>Returns spinner type 2 if the hour is before lunch.</th>
+<th>This method returns an int value to determine the correct spinner by hour of the day. Returns spinner type 2 if the hour is before lunch.</th>
 <th>org.glucosio.android.tools.ReadingTools</th>
 <th>public int hourToSpinnerType(int hour)</th>
 <th>2</th>
@@ -117,7 +117,7 @@
 <th>11.</th>
 <th>hourToSpinner4</th>
 <th><font color=green>PASS</font></th>
-<th>Returns spinner type 3 if the hour is after lunch.</th>
+<th>This method returns an int value to determine the correct spinner by hour of the day. Returns spinner type 3 if the hour is after lunch.</th>
 <th>org.glucosio.android.tools.ReadingTools</th>
 <th>public int hourToSpinnerType(int hour)</th>
 <th>3</th>
@@ -127,7 +127,7 @@
 <th>12.</th>
 <th>hourToSpinner5</th>
 <th><font color=green>PASS</font></th>
-<th>Returns spinner type 4 if the hour is before dinner.</th>
+<th>This method returns an int value to determine the correct spinner by hour of the day. Returns spinner type 4 if the hour is before dinner.</th>
 <th>org.glucosio.android.tools.ReadingTools</th>
 <th>public int hourToSpinnerType(int hour)</th>
 <th>4</th>
@@ -137,7 +137,7 @@
 <th>13.</th>
 <th>hourToSpinner6</th>
 <th><font color=green>PASS</font></th>
-<th>Returns spinner type 5 if the hour is after dinner.</th>
+<th>This method returns an int value to determine the correct spinner by hour of the day. Returns spinner type 5 if the hour is after dinner.</th>
 <th>org.glucosio.android.tools.ReadingTools</th>
 <th>public int hourToSpinnerType(int hour)</th>
 <th>5</th>
@@ -147,7 +147,7 @@
 <th>14.</th>
 <th>hourToSpinner7</th>
 <th><font color=green>PASS</font></th>
-<th>Returns spinner type 8 if the hour is night time or invalid.</th>
+<th>This method returns an int value to determine the correct spinner by hour of the day. Returns spinner type 8 if the hour is night time or invalid.</th>
 <th>org.glucosio.android.tools.ReadingTools</th>
 <th>public int hourToSpinnerType(int hour)</th>
 <th>8</th>

@@ -36,8 +36,8 @@ echo '<!DOCTYPE html>
 		<tr>
 			<th><u>#</u></th>
 			<th><u>TestID</u></th>
-			<th><u>Requirement</u></th>
 			<th><u>Pass/Fail</u></th>
+			<th><u>Requirement</u></th>
 			<th><u>Component Tested</u></th>
 			<th><u>Method Tested</u></th>
 			<th><u>Expected Output</u></th>
